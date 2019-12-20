@@ -17,13 +17,17 @@ class ApplicationController < Sinatra::Base
        Helpers.current_user(session)
       redirect '/account'
     else 
-      redirect '/'
+      erb :error
     end
   end
 
   get '/account' do
-    @user = User.find_by_id(session[:user_id])
-    erb :account
+    if session[:user_id]
+      @user = User.find_by_id(session[:user_id])
+      erb :account
+    else
+      erb :error 
+    end
   end
 
   get '/logout' do
