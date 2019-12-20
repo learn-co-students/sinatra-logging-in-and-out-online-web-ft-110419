@@ -11,15 +11,15 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    binding.pry
   end
 
   get '/account' do
-
+    
   end
 
   get '/logout' do
-
+    
   end
 
 
