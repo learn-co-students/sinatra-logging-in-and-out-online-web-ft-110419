@@ -1,10 +1,10 @@
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   
-  register Sinatra::ActiveRecordExtension
+  #register Sinatra::ActiveRecordExtension
   
   configure do
-    set :public_folder, 'public'
+    #set :public_folder, 'public'
     set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions unless test?
     set :session_secret, "secret"
@@ -37,7 +37,5 @@ class ApplicationController < Sinatra::Base
     session.clear
     redirect '/'
   end
-
-
 end
 
